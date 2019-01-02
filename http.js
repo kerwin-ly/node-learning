@@ -4,10 +4,15 @@ var http = require('http');
 let server = http.createServer();
 
 // 监听请求
-server.on('request', (request, response) => {
-  // console.log(request); // request对象
-  response.write('response success');
-  response.end(); // 结束响应，否则客户端将一直处于请求状态，无响应。
+server.on('request', (req, res) => {
+  // res.end('response success'); // 结束并返回数据 res.write('content') + res.end()
+  // 注： 响应内容只能是字符串 || 二进制
+  console.log(req.socket.remoteAddress, req.socket.remotePort) // 远程请求的ip地址， 端口号
+  if (req.url === '/') {
+    res.end('index page');
+  } else {
+    res.end('other page');
+  }
 })
 
 // 绑定端口
