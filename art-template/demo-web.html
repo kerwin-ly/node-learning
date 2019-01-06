@@ -1,0 +1,15 @@
+<body>
+  <script src="../node_modules/art-template/lib/template-web.js"></script>
+  <script type="text/template" id="userTemplate">
+    姓名： {{ name }}
+    年龄： {{ age }}
+    爱好： {{ each hobbies }} {{ $value }} {{ /each }}
+  </script>
+  <script>
+    let data = template('userTemplate', {
+      name: 'kerwin',
+      age: '24',
+      hobbies: ['roller skating', 'play games']
+    })
+  </script>
+</body>
