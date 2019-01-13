@@ -1,5 +1,8 @@
 let http = require('http');
 let fs = require('fs');
+// 引入第三方包
+// 先寻找node-modules文件夹，如果当前位置没有，则前往上一层目录查找。
+// 找到后node-modules，再定位其目标文件的入口文件
 let template = require('art-template');
 
 let server = http.createServer();

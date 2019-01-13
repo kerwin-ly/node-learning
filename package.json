@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KerwinLeee/node-learning#readme",
   "dependencies": {
-    "art-template": "^4.13.2"
+    "art-template": "^4.13.2",
+    "express": "^4.16.4"
   }
 }

@@ -17,3 +17,8 @@ fs.readFile('./demo.txt', (error, data) => {
     console.log(data.toString());
   }
 })
+
+// 3.读取文件夹
+fs.readdir('./demo/', (error, data) => {
+  console.log(data); // 返回文件和文件夹的数组
+})
