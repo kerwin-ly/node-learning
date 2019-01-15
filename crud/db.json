@@ -1,11 +1,1 @@
-{
-  "students": [{
-    "uid": 1,
-    "name": "kerwin",
-    "age": 24
-  }, {
-    "uid": 2,
-    "name": "bob",
-    "age": 22
-  }]
-}
+[{"uid":1,"name":"kerwin","age":24},{"uid":2,"name":"bob","age":22},{"uid":3,"name":"jim","age":"23"}]

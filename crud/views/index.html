@@ -7,9 +7,16 @@
   <title>curd</title>
 </head>
 <body>
-  {{ each students }}
-    <p>name: {{ $value.name }}</p>
-    <p>age: {{ $value.age }}</p>
-  {{ /each }}
+  <div>
+    <a href="/students/add">添加学生</a>
+  </div>
+  <div>
+    {{ each students }}
+      <div>
+        <span>name: {{ $value.name }}</span>
+        <span>age: {{ $value.age }}</span>
+      </div>
+    {{ /each }}
+  </div>
 </body>
 </html>
