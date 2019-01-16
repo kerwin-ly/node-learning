@@ -7,16 +7,13 @@ let router = express.Router();
 
 // 挂载路由
 router.get('/', (req, res) => {
-  fs.readFile('./db.json', (error, data) => {
-    if (error) {
-      res.redirect('/404'); // 重定向到404页面
-      // return res.status(500).send('Server Error');
-    } else {
-      res.render('index.html', {
-        students: JSON.parse(data)
-      });
-    }
-  })
+  api.getStudents((data) => {
+    res.render('index.html', {
+      students: data
+    });
+  }, () => {
+    res.redirect('/404'); // 重定向到404页面
+  });
 })
 
 router.get('/students/add', (req, res) => {
@@ -25,7 +22,8 @@ router.get('/students/add', (req, res) => {
 
 router.post('/students/add', (req, res) => {
   api.addStudent(req.body, (data) => {
-    console.log(data);
+    // console.log(data);
+    res.redirect('/');
   }, (error) => {
     console.log(error);
   });

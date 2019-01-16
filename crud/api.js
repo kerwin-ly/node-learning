@@ -1,8 +1,14 @@
 
 let fs = require('fs');
 
-exports.getStudents = () => {
-
+exports.getStudents = (successCallBack, errorCallBack) => {
+  fs.readFile('./db.json', (error, data) => {
+    if (error) {
+      errorCallBack('读取文件失败');
+    } else {
+      successCallBack(JSON.parse(data));
+    }
+  })
 }
 
 exports.addStudent = (student, successCallBack, errorCallBack) => {
