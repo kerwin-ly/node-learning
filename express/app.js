@@ -1,4 +1,5 @@
 let express = require('express');
+let path = require('path');
 
 // 创建服务
 let app = express();
@@ -8,7 +9,7 @@ let app = express();
 // app.use('/public/', express.static('./public/'));
 
 // 直接暴露某文件，通过/js/main.js访问
-app.use(express.static('./public/'))
+app.use(express.static(path.join(__dirname, './public/')))
 
 // 请求
 app.get('/', (req, res) => {

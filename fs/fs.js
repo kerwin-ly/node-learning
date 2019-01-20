@@ -1,7 +1,8 @@
 let fs = require('fs');
+let path = require('path');
 
 // 1.写入文件(路径，写入内容，回调函数)
-fs.writeFile('./demo.txt', 'add content', (error) => {
+fs.writeFile(path.join(__dirname, './demo.txt'), 'add content', (error) => {
   if (error) {
     console.log(error);
   } else {
