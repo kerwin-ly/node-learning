@@ -2,7 +2,6 @@ let http = require('http');
 let fs = require('fs');
 let template = require('art-template')
 
-let server = http.createServer();
 let wwwDir = './www';
 
 http
