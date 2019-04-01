@@ -1,11 +1,17 @@
+// 路由模块
+
 var Koa = require('koa');
 var Router = require('koa-router');
+var bodyParser = require('koa-bodyparser');
 
 // var router = require('koa-router')(); // 引用和实例化路由
 
 // 实例化
 var app = new Koa();
 var router = new Router();
+
+// 配置bodyParsers,封装post请求，获取其请求参数的中间件
+app.use(bodyParser);
 
 // 配置路由
 router
@@ -16,7 +22,8 @@ router
     ctx.body = "this is news";
   })
   .get('/news_detail', async (ctx) => {
-    console.log(ctx.query); // 获取参数，ctx.query || ctx.request.query (querystring)
+    console.log(ctx.query); // get请求获取参数，ctx.query || ctx.request.query (querystring)
+    console.log(ctx.request.body); // post请求获取参数
   })
   .get('/goods_detail/:id', async (ctx) => {
     console.log(ctx.params); // 动态路由 /news_detail/xxx
